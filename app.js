@@ -15,18 +15,15 @@ $(document).ready(function() {
   function readData() {
     var itemsRef = firebase.database().ref('items');
     itemsRef.on('child_added', (data) => {
-      // addCommentElement(postElement, data.key, data.val().text, data.val().author);
       console.log(data.val())
       appendItemToList(data.key, data.val())
     });
 
     itemsRef.on('child_changed', (data) => {
-      // setCommentValues(postElement, data.key, data.val().text, data.val().author);
       console.log(data.val())
     });
 
     itemsRef.on('child_removed', (data) => {
-      // deleteComment(postElement, data.key);
       console.log(data.val())
     });
   }
